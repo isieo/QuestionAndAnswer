@@ -1,4 +1,8 @@
 Yabdi::Application.routes.draw do
+  resources :results
+
+  resources :histories
+
   resources :jobs
 
   resources :questions

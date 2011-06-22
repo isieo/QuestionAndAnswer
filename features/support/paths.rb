@@ -10,6 +10,12 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /the new result page/
+      new_result_path
+
+    when /the new history page/
+      new_history_path
+
     when /the new jobs page/
       new_jobs_path
 
