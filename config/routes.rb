@@ -1,4 +1,10 @@
 Yabdi::Application.routes.draw do
+  resources :question_groups
+
+  resources :answer_sessions
+
+  resources :answers
+
   resources :questions
 
   # The priority is based upon order of creation:
