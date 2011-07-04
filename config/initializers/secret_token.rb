@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Yabdi::Application.config.secret_token = '78546e8530ed4411c4322cbf676c448b14ee567ac2b360583ee190ee9f7b0314c94d3f305bfda6a57e7380c3be7abc2241d6c3dd9e91d97d333935beb357ac61'
+Yabdi::Application.config.secret_token = '3ed8b1d70ff19afcdf9f5a82db2ec57c20d0e02459f720e5c996d1da629c398365e0dfa91b849e085bb216adc43773dab8eb6edd796409f49785b2ba8b4d46e7'
