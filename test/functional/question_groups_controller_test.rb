@@ -1,49 +1,54 @@
 require 'test_helper'
 
 class QuestionGroupsControllerTest < ActionController::TestCase
-  setup do
-    @question_group = question_groups(:one)
-  end
-
-  test "should get index" do
+  def test_index
     get :index
-    assert_response :success
-    assert_not_nil assigns(:question_groups)
+    assert_template 'index'
   end
 
-  test "should get new" do
+  def test_show
+    get :show, :id => QuestionGroup.first
+    assert_template 'show'
+  end
+
+  def test_new
     get :new
-    assert_response :success
+    assert_template 'new'
   end
 
-  test "should create question_group" do
-    assert_difference('QuestionGroup.count') do
-      post :create, :question_group => @question_group.attributes
-    end
-
-    assert_redirected_to question_group_path(assigns(:question_group))
+  def test_create_invalid
+    QuestionGroup.any_instance.stubs(:valid?).returns(false)
+    post :create
+    assert_template 'new'
   end
 
-  test "should show question_group" do
-    get :show, :id => @question_group.to_param
-    assert_response :success
+  def test_create_valid
+    QuestionGroup.any_instance.stubs(:valid?).returns(true)
+    post :create
+    assert_redirected_to question_group_url(assigns(:question_group))
   end
 
-  test "should get edit" do
-    get :edit, :id => @question_group.to_param
-    assert_response :success
+  def test_edit
+    get :edit, :id => QuestionGroup.first
+    assert_template 'edit'
   end
 
-  test "should update question_group" do
-    put :update, :id => @question_group.to_param, :question_group => @question_group.attributes
-    assert_redirected_to question_group_path(assigns(:question_group))
+  def test_update_invalid
+    QuestionGroup.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => QuestionGroup.first
+    assert_template 'edit'
   end
 
-  test "should destroy question_group" do
-    assert_difference('QuestionGroup.count', -1) do
-      delete :destroy, :id => @question_group.to_param
-    end
+  def test_update_valid
+    QuestionGroup.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => QuestionGroup.first
+    assert_redirected_to question_group_url(assigns(:question_group))
+  end
 
-    assert_redirected_to question_groups_path
+  def test_destroy
+    question_group = QuestionGroup.first
+    delete :destroy, :id => question_group
+    assert_redirected_to question_groups_url
+    assert !QuestionGroup.exists?(question_group.id)
   end
 end

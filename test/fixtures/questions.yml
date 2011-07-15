@@ -1,11 +1,9 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
 one:
   title: MyString
-  description: MyString
+  description: MyText
   question_group_id: 1
 
 two:
   title: MyString
-  description: MyString
+  description: MyText
   question_group_id: 1

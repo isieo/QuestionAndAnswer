@@ -1,9 +1,9 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
 one:
-  question_id: 1
+  question_id: MyString
+  value: 1
   answer_session_id: 1
 
 two:
-  question_id: 1
+  question_id: MyString
+  value: 1
   answer_session_id: 1

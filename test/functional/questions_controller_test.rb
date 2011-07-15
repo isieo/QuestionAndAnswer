@@ -1,49 +1,54 @@
 require 'test_helper'
 
 class QuestionsControllerTest < ActionController::TestCase
-  setup do
-    @question = questions(:one)
-  end
-
-  test "should get index" do
+  def test_index
     get :index
-    assert_response :success
-    assert_not_nil assigns(:questions)
+    assert_template 'index'
   end
 
-  test "should get new" do
+  def test_show
+    get :show, :id => Question.first
+    assert_template 'show'
+  end
+
+  def test_new
     get :new
-    assert_response :success
+    assert_template 'new'
   end
 
-  test "should create question" do
-    assert_difference('Question.count') do
-      post :create, :question => @question.attributes
-    end
-
-    assert_redirected_to question_path(assigns(:question))
+  def test_create_invalid
+    Question.any_instance.stubs(:valid?).returns(false)
+    post :create
+    assert_template 'new'
   end
 
-  test "should show question" do
-    get :show, :id => @question.to_param
-    assert_response :success
+  def test_create_valid
+    Question.any_instance.stubs(:valid?).returns(true)
+    post :create
+    assert_redirected_to question_url(assigns(:question))
   end
 
-  test "should get edit" do
-    get :edit, :id => @question.to_param
-    assert_response :success
+  def test_edit
+    get :edit, :id => Question.first
+    assert_template 'edit'
   end
 
-  test "should update question" do
-    put :update, :id => @question.to_param, :question => @question.attributes
-    assert_redirected_to question_path(assigns(:question))
+  def test_update_invalid
+    Question.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Question.first
+    assert_template 'edit'
   end
 
-  test "should destroy question" do
-    assert_difference('Question.count', -1) do
-      delete :destroy, :id => @question.to_param
-    end
+  def test_update_valid
+    Question.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Question.first
+    assert_redirected_to question_url(assigns(:question))
+  end
 
-    assert_redirected_to questions_path
+  def test_destroy
+    question = Question.first
+    delete :destroy, :id => question
+    assert_redirected_to questions_url
+    assert !Question.exists?(question.id)
   end
 end

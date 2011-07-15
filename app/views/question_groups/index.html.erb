@@ -1,25 +1,19 @@
-<h1>Listing question_groups</h1>
+<% title "Question Groups" %>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
-
-<% @question_groups.each do |question_group| %>
-  <tr>
-    <td><%= question_group.name %></td>
-    <td><%= question_group.description %></td>
-    <td><%= link_to 'Show', question_group %></td>
-    <td><%= link_to 'Edit', edit_question_group_path(question_group) %></td>
-    <td><%= link_to 'Destroy', question_group, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% for question_group in @question_groups %>
+    <tr>
+      <td><%= question_group.name %></td>
+      <td><%= question_group.description %></td>
+      <td><%= link_to "Show", question_group %></td>
+      <td><%= link_to "Edit", edit_question_group_path(question_group) %></td>
+      <td><%= link_to "Destroy", question_group, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Question group', new_question_group_path %>
+<p><%= link_to "New Question Group", new_question_group_path %></p>

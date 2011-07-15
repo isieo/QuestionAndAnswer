@@ -2,9 +2,8 @@ class CreateQuestions < ActiveRecord::Migration
   def self.up
     create_table :questions do |t|
       t.string :title
-      t.string :description
+      t.text :description
       t.integer :question_group_id
-
       t.timestamps
     end
   end

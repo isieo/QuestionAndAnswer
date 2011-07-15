@@ -3,7 +3,6 @@ class CreateAnswerSessions < ActiveRecord::Migration
     create_table :answer_sessions do |t|
       t.integer :user_id
       t.integer :answer_id
-
       t.timestamps
     end
   end

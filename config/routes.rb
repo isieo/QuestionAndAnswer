@@ -1,7 +1,11 @@
-Yabdi::Application.routes.draw do
-  resources :question_groups
+QuestionManagement::Application.routes.draw do
+  resources :users
 
   resources :answer_sessions
+
+  resources :question_groups
+
+  devise_for :users
 
   resources :answers
 

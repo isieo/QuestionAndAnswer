@@ -1,15 +1,16 @@
-<p id="notice"><%= notice %></p>
+<% title "Answer Session" %>
 
 <p>
-  <b>User:</b>
+  <strong>User:</strong>
   <%= @answer_session.user_id %>
 </p>
-
 <p>
-  <b>Answer:</b>
+  <strong>Answer:</strong>
   <%= @answer_session.answer_id %>
 </p>
 
-
-<%= link_to 'Edit', edit_answer_session_path(@answer_session) %> |
-<%= link_to 'Back', answer_sessions_path %>
+<p>
+  <%= link_to "Edit", edit_answer_session_path(@answer_session) %> |
+  <%= link_to "Destroy", @answer_session, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", answer_sessions_path %>
+</p>

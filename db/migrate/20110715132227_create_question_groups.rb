@@ -2,8 +2,7 @@ class CreateQuestionGroups < ActiveRecord::Migration
   def self.up
     create_table :question_groups do |t|
       t.string :name
-      t.string :description
-
+      t.text :description
       t.timestamps
     end
   end

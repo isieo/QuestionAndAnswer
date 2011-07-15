@@ -1,27 +1,21 @@
-<h1>Listing questions</h1>
+<% title "Questions" %>
 
 <table>
   <tr>
     <th>Title</th>
     <th>Description</th>
-    <th>Question group</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Question Group</th>
   </tr>
-
-<% @questions.each do |question| %>
-  <tr>
-    <td><%= question.title %></td>
-    <td><%= question.description %></td>
-    <td><%= question.question_group_id %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% for question in @questions %>
+    <tr>
+      <td><%= question.title %></td>
+      <td><%= question.description %></td>
+      <td><%= question.question_group_id %></td>
+      <td><%= link_to "Show", question %></td>
+      <td><%= link_to "Edit", edit_question_path(question) %></td>
+      <td><%= link_to "Destroy", question, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Question', new_question_path %>
+<p><%= link_to "New Question", new_question_path %></p>

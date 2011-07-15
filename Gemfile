@@ -5,7 +5,7 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'mysql2', '~> 0.2.6'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -29,3 +29,7 @@ gem 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+gem "nifty-generators", :group => :developments
+gem "mocha", :group => :test
+gem "devise", "~> 1.4.2"

@@ -1,25 +1,12 @@
-<%= form_for(@answer_session) do |f| %>
-  <% if @answer_session.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@answer_session.errors.count, "error") %> prohibited this answer_session from being saved:</h2>
-
-      <ul>
-      <% @answer_session.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+<%= form_for @answer_session do |f| %>
+  <%= f.error_messages %>
+  <p>
     <%= f.label :user_id %><br />
     <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
     <%= f.label :answer_id %><br />
     <%= f.text_field :answer_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </p>
+  <p><%= f.submit %></p>
 <% end %>

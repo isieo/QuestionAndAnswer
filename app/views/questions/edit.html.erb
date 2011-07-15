@@ -1,6 +1,8 @@
-<h1>Editing question</h1>
+<% title "Edit Question" %>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
+<p>
+  <%= link_to "Show", @question %> |
+  <%= link_to "View All", questions_path %>
+</p>

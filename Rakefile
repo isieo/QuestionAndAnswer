@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Yabdi::Application.load_tasks
+QuestionManagement::Application.load_tasks

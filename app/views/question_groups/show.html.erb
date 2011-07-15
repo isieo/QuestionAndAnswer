@@ -1,15 +1,16 @@
-<p id="notice"><%= notice %></p>
+<% title "Question Group" %>
 
 <p>
-  <b>Name:</b>
+  <strong>Name:</strong>
   <%= @question_group.name %>
 </p>
-
 <p>
-  <b>Description:</b>
+  <strong>Description:</strong>
   <%= @question_group.description %>
 </p>
 
-
-<%= link_to 'Edit', edit_question_group_path(@question_group) %> |
-<%= link_to 'Back', question_groups_path %>
+<p>
+  <%= link_to "Edit", edit_question_group_path(@question_group) %> |
+  <%= link_to "Destroy", @question_group, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", question_groups_path %>
+</p>

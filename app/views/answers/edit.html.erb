@@ -1,6 +1,8 @@
-<h1>Editing answer</h1>
+<% title "Edit Answer" %>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @answer %> |
-<%= link_to 'Back', answers_path %>
+<p>
+  <%= link_to "Show", @answer %> |
+  <%= link_to "View All", answers_path %>
+</p>

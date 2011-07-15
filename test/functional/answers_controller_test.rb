@@ -1,49 +1,54 @@
 require 'test_helper'
 
 class AnswersControllerTest < ActionController::TestCase
-  setup do
-    @answer = answers(:one)
-  end
-
-  test "should get index" do
+  def test_index
     get :index
-    assert_response :success
-    assert_not_nil assigns(:answers)
+    assert_template 'index'
   end
 
-  test "should get new" do
+  def test_show
+    get :show, :id => Answer.first
+    assert_template 'show'
+  end
+
+  def test_new
     get :new
-    assert_response :success
+    assert_template 'new'
   end
 
-  test "should create answer" do
-    assert_difference('Answer.count') do
-      post :create, :answer => @answer.attributes
-    end
-
-    assert_redirected_to answer_path(assigns(:answer))
+  def test_create_invalid
+    Answer.any_instance.stubs(:valid?).returns(false)
+    post :create
+    assert_template 'new'
   end
 
-  test "should show answer" do
-    get :show, :id => @answer.to_param
-    assert_response :success
+  def test_create_valid
+    Answer.any_instance.stubs(:valid?).returns(true)
+    post :create
+    assert_redirected_to answer_url(assigns(:answer))
   end
 
-  test "should get edit" do
-    get :edit, :id => @answer.to_param
-    assert_response :success
+  def test_edit
+    get :edit, :id => Answer.first
+    assert_template 'edit'
   end
 
-  test "should update answer" do
-    put :update, :id => @answer.to_param, :answer => @answer.attributes
-    assert_redirected_to answer_path(assigns(:answer))
+  def test_update_invalid
+    Answer.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Answer.first
+    assert_template 'edit'
   end
 
-  test "should destroy answer" do
-    assert_difference('Answer.count', -1) do
-      delete :destroy, :id => @answer.to_param
-    end
+  def test_update_valid
+    Answer.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Answer.first
+    assert_redirected_to answer_url(assigns(:answer))
+  end
 
-    assert_redirected_to answers_path
+  def test_destroy
+    answer = Answer.first
+    delete :destroy, :id => answer
+    assert_redirected_to answers_url
+    assert !Answer.exists?(answer.id)
   end
 end
