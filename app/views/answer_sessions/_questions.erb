@@ -1,0 +1,10 @@
+<h1><%=@question.title%></h1>
+<p><span><%=@question.description%></span></p>
+
+<%form_for @answers do |f|%>
+<ol>
+  <li><%= f.range_field :value, {:min=>1, :max=>5} %> </li>
+</ol>
+
+<%end%>
+

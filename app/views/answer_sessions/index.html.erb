@@ -7,8 +7,7 @@
   </tr>
   <% for answer_session in @answer_sessions %>
     <tr>
-      <td><%= answer_session.user_id %></td>
-      <td><%= answer_session.answer_id %></td>
+      <td><%= answer_session.user.email %></td>
       <td><%= link_to "Show", answer_session %></td>
       <td><%= link_to "Edit", edit_answer_session_path(answer_session) %></td>
       <td><%= link_to "Destroy", answer_session, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -16,4 +15,8 @@
   <% end %>
 </table>
 
-<p><%= link_to "New Answer Session", new_answer_session_path %></p>
+<%= form_for @answer_session do |f| %>
+  <%= f.error_messages %>
+  <p><%= f.submit %></p>
+<% end %>
+

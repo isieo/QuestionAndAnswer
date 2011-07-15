@@ -3,19 +3,17 @@
 <table>
   <tr>
     <th>Question</th>
-    <th>Value</th>
-    <th>Answer Session</th>
+    <th>My Answer</th>
   </tr>
   <% for answer in @answers %>
     <tr>
-      <td><%= answer.question_id %></td>
+      <td><%= answer.question.title %></td>
       <td><%= answer.value %></td>
-      <td><%= answer.answer_session_id %></td>
-      <td><%= link_to "Show", answer %></td>
-      <td><%= link_to "Edit", edit_answer_path(answer) %></td>
-      <td><%= link_to "Destroy", answer, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Show", answer_session_answer_path(@answer_session,answer) %></td>
+      <td><%= link_to "Edit", edit_answer_session_answer_path(@answer_session,answer) %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Answer", new_answer_path %></p>
+<p><%= link_to "New Answer", new_answer_session_answer_path %></p>
+

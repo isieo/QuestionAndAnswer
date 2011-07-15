@@ -1,16 +1,15 @@
-<%= form_for @answer do |f| %>
+<%= form_for ([@answer_session, @answer]) do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :question_id %><br />
-    <%= f.text_field :question_id %>
+  <h1>
+    <%=@answer.question.title%>
+  </h1>
+  <p class="description">
+    <%=@answer.question.description%>
   </p>
   <p>
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
-  </p>
-  <p>
-    <%= f.label :answer_session_id %><br />
-    <%= f.text_field :answer_session_id %>
+    <%=f.hidden_field :question_id, :value=>@answer.question.id %>
+    <%= f.select :value, options_for_select([["Not Like Me",1],["Somewhat Like Me",2],["Like Me",3],["Very Like Me",4]] ) %>
   </p>
   <p><%= f.submit %></p>
 <% end %>
+

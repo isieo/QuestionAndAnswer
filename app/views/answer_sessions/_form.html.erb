@@ -1,12 +1,5 @@
 <%= form_for @answer_session do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :answer_id %><br />
-    <%= f.text_field :answer_id %>
-  </p>
   <p><%= f.submit %></p>
 <% end %>
+

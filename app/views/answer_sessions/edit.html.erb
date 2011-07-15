@@ -1,8 +1,9 @@
 <% title "Edit Answer Session" %>
 
-<%= render 'form' %>
+<%= render 'form',@question%>
 
 <p>
   <%= link_to "Show", @answer_session %> |
   <%= link_to "View All", answer_sessions_path %>
 </p>
+

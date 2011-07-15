@@ -1,31 +1,35 @@
 class AnswersController < ApplicationController
+  before_filter :initialize_answer_session
+
   def index
-    @answers = Answer.all
+    @answers = @answer_session.answers.all
   end
 
   def show
-    @answer = Answer.find(params[:id])
+    @answer = @answer_session.answers.find(params[:id])
   end
 
   def new
-    @answer = Answer.new
+    @answer = @answer_session.answers.new
+    @answer.question = Question.random_unanswered(@answer_session).first
   end
 
   def create
-    @answer = Answer.new(params[:answer])
+    @answer = @answer_session.answers.new(params[:answer])
+    @answer.answer_session = @answer_session
     if @answer.save
-      redirect_to @answer, :notice => "Successfully created answer."
+      redirect_to new_answer_session_answer_path(@answer_session), :notice => "Successfully created answer."
     else
       render :action => 'new'
     end
   end
 
   def edit
-    @answer = Answer.find(params[:id])
+    @answer = @answer_session.answers.find(params[:id])
   end
 
   def update
-    @answer = Answer.find(params[:id])
+    @answer = @answer_session.answers.find(params[:id])
     if @answer.update_attributes(params[:answer])
       redirect_to @answer, :notice  => "Successfully updated answer."
     else
@@ -34,8 +38,14 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
+    @answer = @answer_session.answers.find(params[:id])
     @answer.destroy
     redirect_to answers_url, :notice => "Successfully destroyed answer."
   end
+
+  private
+  def initialize_answer_session
+    @answer_session= AnswerSession.find params[:answer_session_id]
+  end
 end
+

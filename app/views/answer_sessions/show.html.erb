@@ -1,16 +1,9 @@
 <% title "Answer Session" %>
 
-<p>
-  <strong>User:</strong>
-  <%= @answer_session.user_id %>
-</p>
-<p>
-  <strong>Answer:</strong>
-  <%= @answer_session.answer_id %>
-</p>
 
 <p>
   <%= link_to "Edit", edit_answer_session_path(@answer_session) %> |
   <%= link_to "Destroy", @answer_session, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", answer_sessions_path %>
 </p>
+
