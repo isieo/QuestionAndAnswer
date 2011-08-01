@@ -1,0 +1,17 @@
+<% title "Admin/Users" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= link_to "Show", [:admin, user] %></td>
+      <td><%= link_to "Edit", edit_admin_user_path(user) %></td>
+      <td><%= link_to "Destroy", [:admin, user], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Admin/User", new_admin_user_path %></p>

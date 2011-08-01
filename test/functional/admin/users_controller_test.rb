@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionController::TestCase
+class Admin::UsersControllerTest < ActionController::TestCase
   def test_index
     get :index
     assert_template 'index'
@@ -25,7 +25,7 @@ class UsersControllerTest < ActionController::TestCase
   def test_create_valid
     User.any_instance.stubs(:valid?).returns(true)
     post :create
-    assert_redirected_to user_url(assigns(:user))
+    assert_redirected_to admin_user_url(assigns(:user))
   end
 
   def test_edit
@@ -42,13 +42,13 @@ class UsersControllerTest < ActionController::TestCase
   def test_update_valid
     User.any_instance.stubs(:valid?).returns(true)
     put :update, :id => User.first
-    assert_redirected_to user_url(assigns(:user))
+    assert_redirected_to admin_user_url(assigns(:user))
   end
 
   def test_destroy
     user = User.first
     delete :destroy, :id => user
-    assert_redirected_to users_url
+    assert_redirected_to admin_users_url
     assert !User.exists?(user.id)
   end
 end

@@ -33,4 +33,4 @@ gem 'mysql2', '~> 0.2.6'
 gem "nifty-generators", :group => :developments
 gem "mocha", :group => :test
 gem "devise", "~> 1.4.2"
-
+gem 'gchartrb'

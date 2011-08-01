@@ -1,6 +1,6 @@
 <% title "Answers" %>
 
-<table>
+<table border="1">
   <tr>
     <th>Question</th>
     <th>My Answer</th>
@@ -14,6 +14,8 @@
     </tr>
   <% end %>
 </table>
+
+<img src="<%= @chart  %>">
 
 <p><%= link_to "New Answer", new_answer_session_answer_path %></p>
 

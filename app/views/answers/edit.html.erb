@@ -3,6 +3,6 @@
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", @answer %> |
-  <%= link_to "View All", answers_path %>
+  <%= link_to "Show", answer_session_answer_path(@answer) %> |
+  <p><%= link_to "Back to List", answer_session_answers_path %></p>
 </p>

@@ -1,4 +1,8 @@
 QuestionManagement::Application.routes.draw do
+  namespace(:admin){ 
+      resources :users
+      
+  }
 
   resources :answer_sessions do
     resources :answers
@@ -7,7 +11,7 @@ QuestionManagement::Application.routes.draw do
   resources :question_groups
 
   devise_for :users
-
+  
   resources :questions
 
   # The priority is based upon order of creation:
