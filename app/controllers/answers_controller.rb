@@ -21,11 +21,10 @@ class AnswersController < ApplicationController
           color = 'FFFF00'
         end
         value = answer_by_session.answers.all(:include => :question, :conditions => ['questions.question_group_id=?',group.id]).length
-        bc.data group.name, [value], color
+        bc.data group.name + " group", [value], color
         label_value.push(group.name)
       end
-        bc.axis :y, :labels => ["Red","Blue","Green", "Yellow"], :font_size => 12
-        #bc.axis :y, :labels => label_value, :font_size => 12
+        bc.axis :y, :labels => ["Summarized Value"], :font_size => 12
         bc.axis :x, :range => [0,72]
         bc.data_encoding = :extended
 
