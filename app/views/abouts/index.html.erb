@@ -1,0 +1,17 @@
+<% title "Abouts" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for about in @abouts %>
+    <tr>
+      <td><%= about.name %></td>
+      <td><%= link_to "Show", about %></td>
+      <td><%= link_to "Edit", edit_about_path(about) %></td>
+      <td><%= link_to "Destroy", about, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New About", new_about_path %></p>

@@ -1,4 +1,6 @@
 QuestionManagement::Application.routes.draw do
+  resources :abouts
+
   namespace(:admin){ 
       resources :users
       

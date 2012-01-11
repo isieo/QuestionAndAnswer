@@ -1,0 +1,12 @@
+<% title "About" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @about.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_about_path(@about) %> |
+  <%= link_to "Destroy", @about, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", abouts_path %>
+</p>

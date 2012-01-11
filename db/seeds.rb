@@ -6,13 +6,14 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-
+QuestionGroup.create([{ :name => 'Blue' }, { :name => 'Yellow' }, { :name => 'Green' },{ :name => 'Red' }])
 
 
 [
-  {:title=>"Thinks logical",:description="can you think logical?", :group => Group.find_by_name('Red')},
-  {:title=>"Thinks sad",:description="can yasdasou think logical?"},
-
+  {:title=>"Thinks Rationally", :description=>"can you think logical?", :question_group_id => QuestionGroup.find_by_name('Blue').id},
+  {:title=>"Imaginative",:description=>"can you imagine?", :question_group_id => QuestionGroup.find_by_name('Yellow').id},
+  {:title=>"Quiet",:description=>"are you the quiet type?", :question_group_id => QuestionGroup.find_by_name('Green').id},
+  {:title=>"Outgoing & Extroverted",:description=>"are you the outgoing type?", :question_group_id => QuestionGroup.find_by_name('Red').id}
 ].each do |q|
   Question.find_or_create_by_title(q)
 end
