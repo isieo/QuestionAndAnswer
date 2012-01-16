@@ -6,6 +6,12 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+unless User.find_by_email('jimmy@brainbytes.org')
+  admin = User.new({:email => 'jimmy@brainbytes.org', :password => 'superadmin'})
+  admin.admin = true
+  admin.save
+end
+
 QuestionGroup.create([{ :name => 'Blue' }, { :name => 'Yellow' }, { :name => 'Green' },{ :name => 'Red' }])
 
 
