@@ -7,8 +7,7 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 unless User.find_by_email('jimmy@brainbytes.org')
-  admin = User.new({:email => 'jimmy@brainbytes.org', :password => 'superadmin'})
-  admin.admin = true
+  admin = User.new({:email => 'jimmy@brainbytes.org', :encrypted_password => 'superadmin'})
   admin.save
 end
 
